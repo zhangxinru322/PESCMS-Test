@@ -14,7 +14,7 @@ report_desc = "对PESCMS登录功能进行测试"
 if not os.path.exists(report_path):
     os.mkdir(report_path)
 
-# 指定用例的加载路径（修改为test_case目录）
+# 指定用例的加载路径
 case_path = os.path.join(os.path.dirname(__file__), 'test_case')
 
 # 模糊匹配
@@ -22,7 +22,7 @@ suite = unittest.defaultTestLoader.discover(start_dir=case_path, pattern="test_l
 
 result = BeautifulReport(suite)
 result.report(
-    filename="测试报告",
+    filename="PESCMS登录测试报告",
     description=report_desc,
     report_dir=report_path
 )

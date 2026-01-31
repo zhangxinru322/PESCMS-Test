@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from page.page_login import Pagelogin
 from parameterized import parameterized
+from selenium.common.exceptions import NoAlertPresentException
 
 def data_case():
     json_file = os.path.join(os.path.dirname(__file__), "login_case.json")
