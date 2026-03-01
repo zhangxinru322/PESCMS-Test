@@ -18,24 +18,24 @@ def data_case():
 class Test_login(unittest.TestCase):
     def setUp(self):
         #启动浏览器
-        self.driver=webdriver.Edge()
+        self.driver=webdriver.Firefox()
         self.driver.maximize_window()
         #实例化，获取页面对象Pagelogin
         self.login=Pagelogin(self.driver)
-        self.login.driver.get("https://team.pescms.com")
+        self.login.driver.get("http://kdtx-test.itheima.net")
     def tearDown(self):
         self.driver.quit()
 #登录测试方法
     @parameterized.expand(data_case())
-    def test_login(self,username,password,expect_msg):
+    def test_login(self,username,password,code,expect_msg):
         #调用登陆方法
-        self.login.page_login(username,password)
-        time.sleep(2)
+        self.login.page_login(username,password,code)
+        time.sleep(3)
         try:
             if expect_msg == "登录成功":
                 actual_title = self.driver.title
-                # 精准断言标题，确保跳转到仪表盘/个人中心
-                self.assertEqual("仪表盘 - PESCMS Team", actual_title,
+                # 精准断言标题，确保跳转到首页
+                self.assertEqual("客达天下", actual_title,
                                  f"实际：{actual_title}")
                 print("登录成功场景测试通过！")
             else:

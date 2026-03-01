@@ -6,9 +6,9 @@ import time
 # 测试报告的存放路径
 report_path = "./report"
 # 测试报告的标题
-report_title = "PESCMS测试报告"
+report_title = "测试报告"
 # 测试报告的描述
-report_desc = "对PESCMS登录功能进行测试"
+report_desc = "对教育系统登录功能进行测试"
 
 # 判断是否有目录report，有则写入，没有则创建
 if not os.path.exists(report_path):
@@ -22,7 +22,7 @@ suite = unittest.defaultTestLoader.discover(start_dir=case_path, pattern="test_l
 
 result = BeautifulReport(suite)
 result.report(
-    filename="PESCMS登录测试报告",
+    filename="登录测试报告",
     description=report_desc,
     report_dir=report_path
 )

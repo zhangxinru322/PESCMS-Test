@@ -5,12 +5,11 @@ class Base:
     def __init__(self,driver):
         self.driver=driver
     #查找元素方法
-    def base_find_element(self,loc,timeout=30):
+    def base_find_element(self,loc,timeout=50):
         return WebDriverWait(self.driver,timeout).until(
             EC.visibility_of_element_located(loc)
         )
-
-    def base_wait_element_text(self, loc, msg, timeout=10):
+    def base_wait_element_text(self, loc, msg, timeout=20):
         """等待元素文本包含预期内容，专门处理动态错误提示"""
         WebDriverWait(self.driver, timeout).until(
             EC.text_to_be_present_in_element(loc, msg)
